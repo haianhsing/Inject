@@ -1,0 +1,18 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+//发布 Jcenter
+apply from: 'bintray.gradle'
+//本地
+apply from: 'maven.gradle'
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:4.1.1'
+    implementation 'org.javassist:javassist:3.27.0-GA'
+}

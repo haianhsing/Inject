@@ -1,0 +1,11 @@
+apply plugin: 'maven'
+
+//发布在本地，../plugin 文件夹
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: uri('../plugin'))
+        pom.groupId = 'com.unite.plugin'
+        pom.artifactId = 'print'
+        pom.version = '1.0.0'
+    }
+}
