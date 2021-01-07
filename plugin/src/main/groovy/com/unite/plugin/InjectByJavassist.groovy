@@ -43,7 +43,7 @@ class InjectByJavassist {
         // 获取方法
         CtMethod ctMethod = ctClass.getDeclaredMethod('onCreate')
 
-        String toastStr = 'android.widget.Toast.makeText(this, "I am the injected code", android.widget.Toast.LENGTH_SHORT).show();'
+        String toastStr = 'android.widget.Toast.makeText(this, "test", android.widget.Toast.LENGTH_SHORT).show();'
 
         // 方法尾插入
         ctMethod.insertAfter(toastStr)

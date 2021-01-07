@@ -1,9 +1,7 @@
 apply plugin: 'groovy'
-apply plugin: 'maven'
-//发布 Jcenter
-apply from: 'bintray.gradle'
-//本地
-apply from: 'maven.gradle'
+apply plugin: 'maven-publish'
+apply plugin: 'com.novoda.bintray-release'
+
 repositories {
     google()
     jcenter()
@@ -13,6 +11,35 @@ repositories {
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
-    implementation 'com.android.tools.build:gradle:4.1.1'
+    implementation 'com.android.tools.build:gradle:4.0.1'
     implementation 'org.javassist:javassist:3.27.0-GA'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId 'com.unite.plugin'
+            artifactId 'transform'
+            version '1.0.0'
+            from components.java
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            url uri('E:/repos')
+        }
+    }
+}
+
+publish {
+    userOrg = 'haianhsing' //用户名
+    repoName = 'maven'	//仓库名，默认为maven
+    groupId = 'com.unite.plugin'//代码库路径
+    artifactId = 'transform'//项目名称
+    publishVersion = '1.0.2'//版本号
+    desc = 'test'//项目描述
+    website = 'https://github.com/haianhsing/InjectRandomCode'//项目对应网站
 }
