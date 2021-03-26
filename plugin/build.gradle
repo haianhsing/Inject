@@ -20,7 +20,7 @@ publishing {
         mavenJava(MavenPublication) {
             groupId 'com.unite.plugin'
             artifactId 'transform'
-            version '1.0.0'
+            version '1.0.4'
             from components.java
         }
     }
@@ -29,7 +29,7 @@ publishing {
 publishing {
     repositories {
         maven {
-            url uri('E:/repos')
+            url uri('E:\\develop\\android\\github\\maven')
         }
     }
 }
@@ -39,7 +39,7 @@ publish {
     repoName = 'maven'	//仓库名，默认为maven
     groupId = 'com.unite.plugin'//代码库路径
     artifactId = 'transform'//项目名称
-    publishVersion = '1.0.2'//版本号
+    publishVersion = '1.0.4'//版本号
     desc = 'test'//项目描述
     website = 'https://github.com/haianhsing/InjectRandomCode'//项目对应网站
 }

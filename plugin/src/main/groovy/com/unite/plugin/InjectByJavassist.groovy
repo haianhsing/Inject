@@ -14,6 +14,7 @@ class InjectByJavassist {
                     if (file.name.endsWith('Activity.class')) {
                         doInject(project, file, path)
                     }
+//                    doInject(project, file, path)
                 }
             }
         } catch (Exception e) {
@@ -44,9 +45,11 @@ class InjectByJavassist {
         CtMethod ctMethod = ctClass.getDeclaredMethod('onCreate')
 
         String toastStr = 'android.widget.Toast.makeText(this, "test", android.widget.Toast.LENGTH_SHORT).show();'
+        String randomStr = 'java.lang.Math.random();'
 
         // 方法尾插入
         ctMethod.insertAfter(toastStr)
+        ctMethod.insertAfter(randomStr)
         ctClass.writeFile(originPath)
 
         // 释放
